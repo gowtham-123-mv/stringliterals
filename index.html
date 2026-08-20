@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>React Basic Experiment</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            padding: 30px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- React Library -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+
+    <!-- React DOM Library -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- React Output -->
+    <div id="root"></div>
+
+    <!-- React JavaScript -->
+    <script type="text/babel">
+
+        function App() {
+
+            // Counter state
+            const [count, setCount] = React.useState(0);
+
+            // String literal
+            const studentName = "Gowtham";
+
+            // Increment function
+            function increment() {
+                setCount(count + 1);
+            }
+
+            // Decrement function
+            function decrement() {
+                setCount(count - 1);
+            }
+
+            // Reset function
+            function reset() {
+                setCount(0);
+            }
+
+            // Click event function
+            function showMessage() {
+                alert("Welcome to React.js!");
+            }
+
+            return (
+                <div className="container">
+
+                    <h1>React Basic Experiment</h1>
+
+                    {/* String Literal */}
+                    <h2>{`Hello ${studentName}`}</h2>
+
+                    {/* Counter */}
+                    <h2>Counter: {count}</h2>
+
+                    <button onClick={increment}>
+                        Increment
+                    </button>
+
+                    <button onClick={decrement}>
+                        Decrement
+                    </button>
+
+                    <button onClick={reset}>
+                        Reset
+                    </button>
+
+                    <hr />
+
+                    {/* Event Handling */}
+                    <h2>Click Handler Example</h2>
+
+                    <button onClick={showMessage}>
+                        Click Me
+                    </button>
+
+                    <hr />
+
+                    {/* Conditional Rendering */}
+                    <h2>Conditional Rendering</h2>
+
+                    {count > 0 ? (
+                        <p>Counter is Positive</p>
+                    ) : count < 0 ? (
+                        <p>Counter is Negative</p>
+                    ) : (
+                        <p>Counter is Zero</p>
+                    )}
+
+                </div>
+            );
+        }
+
+        // Render React Component
+        const root = ReactDOM.createRoot(
+            document.getElementById("root")
+        );
+
+        root.render(<App />);
+
+    </script>
+
+</body>
+</html>
